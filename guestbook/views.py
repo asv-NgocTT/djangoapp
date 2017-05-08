@@ -4,6 +4,8 @@ from django.core.mail import send_mail,BadHeaderError
 from django.views.generic import TemplateView, FormView
 from google.appengine.api import users
 from google.appengine.ext import ndb
+from google.appengine.api import app_identity
+from google.appengine.api import mail
 from guestbook.models import Greeting, guestbook_key, DEFAULT_GUESTBOOK_NAME
 from guestbook.forms import SignForm
 
@@ -71,7 +73,15 @@ class SignView(FormView):
 			greeting.guestbook_name = guestbook_name
 			greeting.content = content
 			greeting.put()
+		def email(guestbook_name):
+			mail.send_mail(sender=guestbook_name,
+			               to="<tranngoc.uit@gmail.com>",
+			               subject=content,
+			               body=guestbook_name + content)
+		functionput()
+		email(guestbook_name)
 		return super(SignView, self).form_valid(form, **kwargs)
+
 
 	def get_success_url(self):
 		success_url = reverse_lazy('index')
