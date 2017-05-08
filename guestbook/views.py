@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 from django.core.urlresolvers import reverse_lazy
 from django.core.mail import send_mail,BadHeaderError
-from django.http import HttpResponse,HttpResponseRedirect
 from django.views.generic import TemplateView, FormView
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -76,17 +76,3 @@ class SignView(FormView):
 	def get_success_url(self):
 		success_url = reverse_lazy('index')
 		return '%s?guestbook_name=%s' % (success_url, self.get_guestbook_name())
-
-
-	# def send_email(self,request):
-	# 	subject = self.request.POST.get('subject','')
-	# 	message = self.request.POST.get('message','')
-	# 	from_email = self.request.POST.get('from_email','')
-	# 	if (subject and message and from_email):
-	# 		try:
-	# 			send_mail(subject, message, from_email,['tranngoc.uit@gmail.com'])
-	# 		except BadHeaderError:
-	# 			return HttpResponse('Invalid')
-	# 		return HttpResponseRedirect('guestbook/main_page')
-	# 	else:
-	# 		return HttpResponse("pls valid email")
