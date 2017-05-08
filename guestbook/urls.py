@@ -7,5 +7,3 @@ urlpatterns = [
     url(r'^index/$',IndexView.as_view(), name='index'),
     url(r'^sign/$',SignView.as_view(), name='sign'),
 ]
-
-

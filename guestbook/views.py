@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.core.urlresolvers import reverse_lazy
-from django.core.mail import send_mail,BadHeaderError
 from django.views.generic import TemplateView, FormView
 from google.appengine.api import users
 from google.appengine.ext import ndb
-from google.appengine.api import app_identity
 from google.appengine.api import mail
 from guestbook.models import Greeting, guestbook_key, DEFAULT_GUESTBOOK_NAME
 from guestbook.forms import SignForm
@@ -59,7 +57,6 @@ class SignView(FormView):
 		else:
 			return self.form_invalid(form, **kwargs)
 
-
 	def form_valid(self, form, **kwargs):
 		# how to get velue in the form
 		guestbook_name = form.cleaned_data['guestbook_name']
@@ -81,7 +78,6 @@ class SignView(FormView):
 		functionput()
 		email(guestbook_name)
 		return super(SignView, self).form_valid(form, **kwargs)
-
 
 	def get_success_url(self):
 		success_url = reverse_lazy('index')

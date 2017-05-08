@@ -16,14 +16,3 @@ queue:
     min_backoff_seconds: 10
     max_backoff_seconds: 200
     max_doublings: 3
-#queue:
-#- name: my-pull-queue
-#  mode: push
-#  acl:
-#  # can list, get, lease, delete, and update tasks:
-#  - user_email: tranngoc.uit@gmail.com
-#  # can insert tasks:
-#  - writer_email: user@gmail.com
-#  # can insert tasks, in addition to rights granted by
-#  # being a user_email above:
-#  - writer_email: bar@foo.com
