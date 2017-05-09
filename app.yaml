@@ -7,7 +7,7 @@ threadsafe: true
 handlers:
 
 - url: /sendemail
-  script: guestbook.views.app
+  script: guestbook.views.taskqueue_mail.app
 
 - url: /.*
   script: main.application
@@ -17,4 +17,4 @@ libraries:
   version: "latest"
 
 env_variables:
-  DJANGO_SETTINGS_MODULE: 'djangoapp.settings'
+  DJANGO_SETTINGS_MODgULE: 'djangoapp.settings'

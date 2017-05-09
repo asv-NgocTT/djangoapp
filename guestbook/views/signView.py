@@ -5,7 +5,7 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 from guestbook.models import Greeting, guestbook_key
 from guestbook.forms import SignForm
-from guestbook.viewss import taskqueue_mail
+from guestbook.views import taskqueue_mail
 
 
 class SignView(FormView):
@@ -24,7 +24,6 @@ class SignView(FormView):
 		context = super(SignView, self).get_context_data(**kwargs)
 		context['guestbook_name'] = guestbook_name
 		context['sign_form'] = form
-
 		return context
 
 	def get_initial(self):
@@ -55,9 +54,9 @@ class SignView(FormView):
 		@ndb.transactional
 		def functionput():
 			greeting.put()
-
-		functionput()
-		taskqueue_mail.add_task(greeting.author.email(), content)
+		if users.get_current_user():
+			functionput()
+			taskqueue_mail.add_task(greeting.author.email(), content)
 		return super(SignView, self).form_valid(form, **kwargs)
 
 	def get_success_url(self):

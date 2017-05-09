@@ -13,9 +13,8 @@
       {% endif %}
       <blockquote>{{ greeting.content|escape }}</blockquote>
     {% endfor %}
-
 <a href="{% url sign %}?guestbook_name={{ guestbook_name }}">sign book</a>
-<a href="{{ url }}">{{ url_linktext }}</a>
+<a href="{{ url }}">   {{ url_linktext }}</a>
 </body>
 </html>
 
