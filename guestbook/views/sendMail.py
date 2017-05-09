@@ -7,4 +7,3 @@ def send_email(sender, content):
        to="<tranngoc.uit@gmail.com>",
        subject=content,
        body=sender + content)
-

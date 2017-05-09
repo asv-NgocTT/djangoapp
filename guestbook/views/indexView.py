@@ -30,4 +30,3 @@ class IndexView(TemplateView):
 		context['url'] = url
 		context['url_linktext'] = url_linktext
 		return context
-

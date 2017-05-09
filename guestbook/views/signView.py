@@ -62,4 +62,3 @@ class SignView(FormView):
 	def get_success_url(self):
 		success_url = reverse_lazy('index')
 		return '%s?guestbook_name=%s' % (success_url, self.get_guestbook_name())
-

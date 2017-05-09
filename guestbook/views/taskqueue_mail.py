@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from google.appengine.api import taskqueue
 from guestbook.views import sendMail
 import webapp2
@@ -20,4 +21,3 @@ class task_handle_email(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/sendemail', task_handle_email)
 ], debug=True)
-
