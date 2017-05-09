@@ -2,10 +2,7 @@ from google.appengine.api import taskqueue
 from guestbook.viewss import sendMail
 import webapp2
 
-
-
 def add_task(sender, content):
-
 	task=taskqueue.add(
 		url = '/sendemail',
 		params = {'sender': sender, 'content': content},
