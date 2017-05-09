@@ -5,6 +5,10 @@ api_version: 1
 threadsafe: true
 
 handlers:
+
+- url: /sendemail
+  script: guestbook.views.app
+
 - url: /.*
   script: main.application
 
