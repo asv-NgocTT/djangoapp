@@ -49,11 +49,9 @@ class SignView(FormView):
 		@ndb.transactional
 		def functionput():
 			greeting.put()
+		functionput()
 		if users.get_current_user():
-			functionput()
 			taskqueue_mail.add_task(greeting.author, content)
-		else:
-			functionput()
 		return super(SignView, self).form_valid(form, **kwargs)
 
 	def get_success_url(self):
