@@ -26,12 +26,7 @@ class SignView(FormView):
 		context['sign_form'] = form
 		return context
 
-	def get_initial(self):
-		initial = super(SignView, self).get_initial()
-		initial['guestbook_name'] = self.get_guestbook_name()
-		return initial
-
-	def post(self, request, *args, **kwargs):
+	def post(self, *args, **kwargs):
 		# how to get a form in formview
 		form_class = self.get_form_class()
 		form = self.get_form(form_class)
@@ -44,7 +39,6 @@ class SignView(FormView):
 		# how to get values in the form
 		guestbook_name = form.cleaned_data['guestbook_name']
 		content = form.cleaned_data['content']
-
 		greeting = Greeting(parent=guestbook_key(guestbook_name))
 		if users.get_current_user():
 			greeting.author = users.get_current_user()
@@ -56,7 +50,7 @@ class SignView(FormView):
 			greeting.put()
 		if users.get_current_user():
 			functionput()
-			taskqueue_mail.add_task(greeting.author.email(), content)
+		taskqueue_mail.add_task(greeting.author, content)
 		return super(SignView, self).form_valid(form, **kwargs)
 
 	def get_success_url(self):
