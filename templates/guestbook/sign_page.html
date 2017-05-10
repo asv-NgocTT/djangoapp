@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
+    <form action="/sign/?guestbook_name={{ guestbook_name }}" method="post">
+          {% csrf_token %}
+        {{ sign_form.as_p }}
+          <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
 </body>
 </html>
+
+

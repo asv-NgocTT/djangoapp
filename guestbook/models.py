@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from google.appengine.ext import ndb
 
 DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
