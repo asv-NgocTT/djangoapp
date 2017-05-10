@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from django.views.generic import TemplateView
 from google.appengine.api import users
 from guestbook.models import Greeting, guestbook_key, DEFAULT_GUESTBOOK_NAME

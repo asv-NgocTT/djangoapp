@@ -50,7 +50,9 @@ class SignView(FormView):
 			greeting.put()
 		if users.get_current_user():
 			functionput()
-		taskqueue_mail.add_task(greeting.author, content)
+			taskqueue_mail.add_task(greeting.author, content)
+		else:
+			functionput()
 		return super(SignView, self).form_valid(form, **kwargs)
 
 	def get_success_url(self):
