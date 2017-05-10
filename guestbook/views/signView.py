@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import FormView
 from google.appengine.api import users
