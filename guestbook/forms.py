@@ -12,3 +12,4 @@ class SignForm(forms.Form):
 class update(forms.Form):
 	guestbook_id = forms.CharField(label='guestbookid')
 	guestbook_name =forms.CharField(label='guestbookname', widget=forms.TextInput)
+	content=forms.CharField(label='content',widget=forms.Textarea)

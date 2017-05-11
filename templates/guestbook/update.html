@@ -5,10 +5,10 @@
     <title>update page</title>
 </head>
 <body>
-    <form action="{% url 'update' %}?guestbook_id={{ guestbook_id }}&guestbook_name=
+    <form action="{% url update %}?guestbook_id={{ guestbook_id }}&guestbook_name=
 {{ guestbook_name }}" method="post">
 	{% csrf_token %}
-	{{ update_form.as_p }}
+	{{ update.as_p }}
 	<div><input type="submit" value="Update Guestbook"></div>
 </form>
 </body>
