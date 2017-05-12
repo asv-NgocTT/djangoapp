@@ -2,18 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Template View</title>
+    <title>Title</title>
 </head>
 <body>
-{% for greeting in greetings %}
-      {% if greeting.author.nickname %}
-        <b>{{ greeting.author }}</b> wrote:
-      {% else %}
-        An anonymous person wrote:
-      {% endif %}
-      <blockquote>{{ greeting.content|escape }}</blockquote>
-    {% endfor %}
-<a href="{% url sign %}?guestbook_name={{ guestbook_name }}">sign GuestBook</a>
-<a href="{{ url }}">   {{ url_linktext }}</a>
+
 </body>
 </html>
