@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from google.appengine.api import taskqueue
 from guestbook.views import sendMail
 import webapp2

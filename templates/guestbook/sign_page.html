@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sign View</title>
 </head>
 <body>
-    <form action="/sign/?guestbook_name={{ guestbook_name }}" method="post">
+    <form action="{% url sign %}?guestbook_name={{ guestbook_name }}" method="post">
           {% csrf_token %}
         {{ sign_form.as_p }}
           <div><input type="submit" value="Sign Guestbook"></div>
